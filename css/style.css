@@ -1,0 +1,1439 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+/* 地圖 */
+#map {
+	width: 100%;
+	height: 95vh;
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+/*
+*** Leaflet Routing Machine
+*/
+/* close leaflet-routing-machine */
+.legendClickArea {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 27px;
+	width: 100%;
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+}
+
+.legendClickArea img {
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+
+}
+
+.leaflet-routing-geocoders {
+	margin-top: 20px;
+}
+
+.leaflet-routing-geocoders input {
+	padding: 5px;
+	font-weight: bolder;
+	font-size: 16px;
+	border: 3px solid #000;
+	border-radius: 10px;
+	outline: none;
+	transition: .5s;
+}
+
+.leaflet-routing-geocoders input:focus {
+	background: #c7ecee;
+	border: 3px solid #1289A7;
+}
+
+div.leaflet-routing-container {
+	padding: 20px;
+}
+
+
+/*
+*** 回到目前位置按鈕
+*/
+.goBackPosition {
+	/* position: absolute; */
+	z-index: 999;
+	font-size: 28px;
+	cursor: pointer;
+}
+
+/*
+*** Show Taiwan
+*/
+.goBackTaiwan {
+	position: absolute;
+	align-items: center;
+	text-decoration: none;
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+	font-size: 30px;
+	top: 5px;
+	width: 40px;
+	height: 40px;
+	right: 90px;
+	border: 1.5px solid #000;
+	cursor: pointer;
+	background: #ffffff;
+	border-radius: 8px;
+	transition: .5s;
+}
+
+.goBackTaiwan:hover {
+	background-color: #fff;
+}
+
+.goFiliter {
+	z-index: 999;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 5px;
+    right: 40px;
+	font-size: 18px;
+	width: 40px;
+	height: 40px;
+	border: 1.5px solid #000;
+	cursor: pointer;
+	background: #f5f6fa;
+	border-radius: 8px;
+	transition: .5s;
+}
+
+.goFiliter:hover {
+	background-color: #fff;
+}
+.leaflet-control-zoom-fullscreen.fullscreen-icon{
+	position: absolute;
+    top: -90px;
+    right: -2px;
+    border: 1.5px solid #000!important;
+}
+.leaflet-touch .fullscreen-icon {
+    background-position: 1px 1px;
+}
+.leaflet-touch .fullscreen-icon.leaflet-fullscreen-on{
+	background-position: 1px -24px;
+}
+/*
+*** Map Control Design
+*/
+/* 地圖按鈕顏色 */
+.leaflet-container a {
+	color: #000;
+}
+
+.leaflet-container a .my-control:hover {
+	background-color: #fff;
+}
+.ac-container input.menu:checked ~ article.ac-large{
+	max-height: 150px;
+	overflow-y: unset;
+
+}
+.ac-container input.menu:checked ~ article.ac-large::-webkit-scrollbar{
+	background: #0d141f;
+	/* border-radius: 5px; */
+	width: 15px;
+}
+
+
+.ac-container article::-webkit-scrollbar-thumb,
+.ac-container input.menu:checked ~ article.ac-large::-webkit-scrollbar-thumb{
+	background: #a8ee05;
+	height: 15px;
+	border-radius: 5px;
+}
+.ac-container{
+	overflow-y: hidden;
+}
+.leaflet-control-layers {
+	font-size: 16px;
+	font-weight: bolder;
+	border-radius: 1em;
+	padding: 0 .25em;
+	height: fit-content;
+}
+.leaflet-control-layers:hover{
+	border-radius: 1em;
+	background: #fff;
+}
+
+.ac-container input.menu:checked + label,
+.ac-container input.menu:checked + label:hover{
+	background: #bfcdf2;
+	border-radius: 5px;
+	cursor:pointer;
+}
+
+div[id^="leaflet-control-accordion-layers"] > label{
+	color: #000;
+	border-radius: 5px;
+	margin: 5px auto;
+	cursor:pointer;
+}
+
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar{
+	background-color: rgb(58, 71, 104);
+}
+.leaflet-sidebar-content::-webkit-scrollbar{
+	width: 10px;
+}
+.leaflet-sidebar-content-webkit-scrollbar-button{
+	color: #fff;
+}
+/*
+*** popup的樣式設計
+*/
+.leaflet-popup-content-wrapper {
+	padding: 0;
+	overflow: hidden;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+	margin: 0;
+}
+
+.leaflet-popup-content-wrapper h2 {
+	padding: 10px;
+	background: #57C5B6;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.leaflet-popup-content-wrapper p {
+	font-size: 14px;
+	padding: 0 10px;
+	font-weight: bolder;
+}
+
+.leaflet-popup-content h3 {
+	padding: 10px;
+	font-size: 14px;
+	font-weight: bolder;
+}
+
+/*
+*** popup的樣式設計(End)
+*/
+
+
+/*
+*** SideBar 設定
+*/
+.leaflet-sidebar-pane .container-List {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.container-List div {
+	margin: 5px 0;
+}
+
+.leaflet-sidebar-header {
+	font-weight: bolder;
+	text-align: center;
+	font-size: 1.5rem;
+	padding: 0.5em 0;
+    height: auto;
+}
+
+/* .leaflet-sidebar-content {
+	overflow: scroll;
+
+} */
+
+.leaflet-sidebar-tabs{
+	position: relative;
+}
+
+/* ::-webkit-scrollbar {
+	width: 50px;
+	height: 100%;
+	display: block;
+} */
+
+label.select_Label {
+	font-size: 16px;
+	font-weight: bolder;
+	background-color: black;
+	color: #fff;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px;
+	margin-right: 10px;
+}
+
+.form-select {
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+
+.tra_Button_Container {
+	display: flex;
+	padding: 10px;
+	width: 100%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.container-tra_Button_Container button {
+	font-weight: bolder;
+	padding: 5px 15px;
+}
+
+.container-List a.routing_pic {
+	font-weight: bolder;
+	font-size: 18px;
+	margin-top: 20px;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Modal Dialog */
+div.modal-content {
+	border: none;
+}
+
+div.modal-header {
+	font-size: 22px;
+	font-weight: bolder;
+	color: white;
+}
+
+.modal-title {
+	font-size: 32px;
+}
+
+.modal-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-body img {
+	/* background-attachment: fixed; */
+	background-position: center;
+	width: 800px;
+	/* height: 1200px; */
+	height: auto;
+	object-fit: cover;
+}
+
+
+/* click output */
+div#tra_result,
+div#thsr_result,
+div#mrt_result,
+div#bus_result,
+div#ptxAPI-info,
+div#home_result {
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+
+
+
+/*
+*** Marker-Cluster 設定
+*/
+
+/* 小 */
+.marker-cluster-small {
+	background-color: rgba(181, 226, 140, 0.6);
+}
+
+.marker-cluster-small div {
+	background-color: rgba(110, 204, 57, 0.6);
+}
+
+/* 中 */
+.marker-cluster-medium {
+	background-color: rgba(241, 211, 87, 0.6);
+}
+
+.marker-cluster-medium div {
+	background-color: rgba(240, 194, 12, 0.6);
+}
+
+/* 大 */
+.marker-cluster-large {
+	background-color: rgba(253, 156, 115, 0.6);
+}
+
+.marker-cluster-large div {
+	background-color: rgba(241, 128, 23, 0.6);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+}
+
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+	font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+
+}
+
+.marker-cluster span {
+	line-height: 30px;
+}
+
+
+/* AWESome_Marker */
+.awesome-marker i {
+	font-size: 18px;
+	margin-top: 12px;
+}
+
+/*
+*** Marker-Cluster 設定(End)
+*/
+
+
+/*
+*** 頁尾授權
+*/
+
+footer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+	font-size: 10px;
+	font-weight: bold;
+	background-color: #dfe6e900;
+}
+
+
+.leaflet-popup-tip-container {
+	margin: 0 0;
+}
+
+/* StyleControlGroup */
+.menu-item-checkbox,
+.menu-item-radio {
+	padding: 5px 10px;
+	font-size: 16px;
+}
+
+.menu-item-checkbox input .menu-item-radio input {
+	margin: 0 5px;
+}
+
+div.leaflet-control-layers section {
+	margin:5px;
+}
+
+.leaflet-sidebar-tabs>li,
+.leaflet-sidebar-tabs>ul>li {
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+
+
+/* test */
+
+.Bus-City-info {
+	display: flex;
+	width: 100%;
+	max-width: 1200px;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	padding: 0 20px;
+	position: relative;
+	transition: .7s;
+
+}
+
+
+.card {
+	background: #15427a;
+	padding: 0 20px;
+	margin: 10px 10px;
+	width: calc(50% - 20px);
+	height: 130px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 15px;
+}
+
+.other_City {
+	width: calc(100% - 20px);
+}
+
+.card:nth-child(1),
+.card:nth-child(2) {
+	margin-top: 20px;
+}
+
+
+.card-icon {
+	font-size: 28px;
+	background: #ff9b22;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px !important;
+	border-radius: 50%;
+	transition: 0.3s linear;
+}
+
+
+.card:hover .card-icon {
+	background: none;
+	color: #7bed9f;
+	transform: scale(1.6);
+}
+
+.card p {
+	margin-top: 20px;
+	font-weight: bolder;
+	font-size: 16px;
+	letter-spacing: 2px;
+	max-height: 0;
+	/* opacity: 0; */
+	transition: 0.3s linear;
+}
+
+.card:hover p {
+	max-height: 40px;
+}
+
+.bus-loading {
+	position: absolute;
+	display: none;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999;
+	font-size: large;
+}
+
+
+
+.bus-loading-mask {
+	background-color: rgb(0, 0, 0, .3);
+}
+
+
+
+div.singleCity {
+	display: none;
+}
+
+div.busInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.busInfo h2 {
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+
+
+div.bus_Routes {
+	display: none;
+}
+
+div.bus_Routes_active {
+	display: flex;
+	flex-wrap: wrap;
+	font-weight: bolder;
+	justify-content: center;
+}
+
+.bus_Routes span {
+	background-color: #fff;
+	margin: 10px;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	font-size: 18px;
+	line-height: 60px;
+	border: 2px solid #333;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: .4s linear;
+}
+
+.bus_Routes span:hover {
+	background-color: #686de0;
+}
+
+.list-route-group {
+	padding: 5px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.list-route-item {
+	padding: 10px;
+	margin-top: 10px;
+	width: 90%;
+	height: 60px;
+	border: 2px solid #333;
+	transition: .5s;
+	cursor: pointer;
+}
+
+.list-route-item:hover {
+	background-color: #686de0;
+}
+
+h3.stop_Name {
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+input#inputbox {
+	background-color: #dfe6e9;
+	border: 2px solid #000
+}
+
+input#inputbox:focus {
+	background-color: #81ecec;
+}
+
+
+/* 計時器 */
+.timer-container {
+	position: sticky;
+	/* top: 0 為了讓 sticky可以有效果 */
+	top: 0;
+}
+
+span.timer {
+	font-weight: bolder;
+	font-size: 20px;
+	margin: 10px 0;
+	padding: 5px 10px;
+
+
+}
+
+
+/* 旅遊 */
+/* Travel_City */
+div.city_container {
+	/* height: 100px; */
+	margin: 10px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	/* 訂在 item身上 */
+	position: relative;
+	cursor: pointer;
+}
+
+div.city_container:nth-child(1) {
+	margin: 0;
+}
+
+div.city_container img {
+	width: 100%;
+	object-fit: cover;
+	cursor: pointer;
+    opacity: 0.7;
+	/* div下面會多一個空白，用這個處理掉 */
+	/* vertical-align: middle; */
+}
+
+
+
+
+
+
+.travel_Category,
+.food_Category {
+	display: none;
+}
+.travel_Category div.category>h2,
+.food_Category div.category >h2{
+	color:#f5f6fa;
+	padding-bottom: 1em;
+}
+.travel_Category div.category,
+.food_Category div.category {
+	display: flex;
+	padding: 10px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+div.searchBox {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+div.searchBox i {
+	font-size: 32px;
+	margin-left: 5px;
+	cursor: pointer;
+	transition: .6s;
+}
+
+div.filter_Container_Travel,
+div.filter_Container_Food {
+	/* position: relative; */
+	margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	border: 3px solid #bdc3c7;
+	border-radius: 10px;
+}
+
+h2.filter_header {
+	font-size: 24px;
+	width: 100%;
+	color: darkgray;
+	font-weight: bolder;
+	border-bottom: 2px solid #bdc3c7;
+	margin-bottom: 5px;
+}
+
+.filter_Container_Food span,
+.filter_Container_Travel span {
+	padding: 10px;
+	font-size: 18px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.item_Control {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.item_Control button {
+	padding: 5px 15px;
+	margin: 0 10px;
+}
+
+div.searchBox input {
+	width: 15rem;
+	padding: 0.3rem;
+	font-weight: bolder;
+	border-radius: 5px;
+	border: 3px solid #000;
+	outline: none;
+	transition: .5s;
+}
+
+div.searchBox input:focus {
+	background: #c7ecee;
+	border: 3px solid #1289A7;
+}
+
+
+div.travel-item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	padding: 10px;
+	font-weight: bolder;
+	/* width: 380px;  */
+	height: auto;
+	padding-bottom: 10px;
+	background-color: #dcdde1;
+	border-radius: 10px;
+	margin: 10px;
+	transition: .7s;
+
+}
+
+h2.view_Name {
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	font-weight: bolder;
+	position: relative;
+	width: 70%;
+}
+
+div.view_Span {
+	position: absolute;
+	/* font-size: 20px; */
+	right: 10px;
+	top: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.view_Span span {
+	margin-bottom: 5px;
+	width: 100%;
+}
+
+h3.view_address {
+	font-size: 14px;
+	width: 70%;
+}
+
+h3.view_address i {
+	color: blue;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+h3.view_opentime {
+	font-size: 14px;
+}
+
+h3.view_opentime i {
+	color: blue;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+div.fly_Marker_Container {
+	padding: 20px;
+	font-weight: bolder;
+
+}
+
+div#travel_info_body {
+	font-family: "微軟正黑體";
+	font-size: 16px;
+	;
+	width: 100%;
+}
+
+
+div.travel_Describe_Container {
+	/* width: 60%; */
+	padding: 10px;
+	border: 2px solid #333;
+	;
+	letter-spacing: 3px;
+	line-height: 2rem;
+	text-indent: 2rem;
+}
+
+div.travel_Image_Container {
+	/* width: 40%; */
+	padding: 10px;
+}
+
+.travel_Image_Container img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+.bus_polyline {
+	stroke: red;
+
+}
+
+
+
+/* Food */
+
+
+
+div.food-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	padding: 10px;
+	font-weight: bolder;
+	/* width: 380px; */
+	height: auto;
+	padding: 5px;
+	border: 2px solid #000;
+	background-color: #dcdde1;
+	border-radius: 5px;
+	margin: 10px;
+	transition: .7s;
+}
+.food-item:hover{
+	background: cadetblue;
+}
+h2.restaurant_Name {
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	font-weight: bolder;
+}
+
+h3.food_address {
+	font-size: 14px;
+}
+
+
+/* selectpicker */
+
+.select-box {
+	position: relative;
+	display: flex;
+	width: 65%;
+	flex-direction: column;
+}
+
+.select-box .options-container,
+.select-box .options-container-thsr {
+	background: #2f3640;
+	color: #f5f6fa;
+	max-height: 0;
+	width: 100%;
+	opacity: 0;
+	transition: all 0.4s;
+	border-radius: 8px;
+	overflow: hidden;
+	order: 1;
+}
+
+.selected,
+.selected-thsr {
+	background: #BAD7E9;
+	border-radius: 8px;
+	margin-bottom: 8px;
+	color: #2B3467;
+	position: relative;
+	order: 0;
+	font-weight: bolder;
+}
+
+.selected-thsr {
+	background-color: #BAD7E9;
+	color: #2B3467;
+}
+
+.selected::after,
+.selected-thsr::after {
+	content: "";
+	background: url("../img/arrow-down.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	height: 100%;
+	width: 32px;
+	right: 10px;
+	top: 5px;
+	transition: all 0.4s;
+}
+
+.select-box .options-container.active,
+.select-box .options-container-thsr.active {
+	max-height: 240px;
+	opacity: 1;
+	overflow-y: scroll;
+	margin-top: 54px;
+}
+
+.select-box .options-container.active+.selected::after,
+.select-box .options-container-thsr.active+.selected::after {
+	transform: rotateX(180deg);
+	top: -6px;
+}
+.select-box .options-container::-webkit-scrollbar{
+	width: 10px;
+	background: #0d141f;
+}
+.select-box .options-container-thsr::-webkit-scrollbar {
+	width: 10px;
+	background: #0d141f;
+	border-radius: 0 8px 8px 0;
+}
+.leaflet-sidebar-left .leaflet-sidebar-content::-webkit-scrollbar{
+	background: #0d141f;
+	border-radius: 5px;
+	width: 5px;
+}
+
+.leaflet-sidebar-left .leaflet-sidebar-content::-webkit-scrollbar-thumb{
+	background: #a8ee05;
+	height: 15px;
+	border-radius: 50px;
+}
+.select-box .options-container::-webkit-scrollbar-thumb,
+.form-select::-webkit-scrollbar-thumb,
+.select-box .options-container-thsr::-webkit-scrollbar-thumb {
+	background: #a8ee05;
+	border-radius: 0 8px 8px 0;
+}
+.city-option-Name{
+	padding: 1em 0 0 1em;
+}
+.select-box .option,
+.selected,
+.selected-thsr {
+	padding: 12px 24px;
+	cursor: pointer;
+	font-size: 14px;
+	text-align: center;
+}
+
+.select-box .option:hover {
+	background: #414b57;
+}
+
+
+.select-box label,
+.select-box-thsr label {
+	cursor: pointer;
+}
+
+.select-box .option .radio,
+.select-box-thsr .option .radio {
+	display: none;
+}
+
+/* Searchbox */
+.search-box input,
+.search-box-thsr input {
+	width: 100%;
+	padding: 12px 16px;
+	font-family: 'Microsoft Yahei';
+	font-size: 16px;
+	position: absolute;
+	border-radius: 8px 8px 0 0;
+	z-index: 100;
+	border: 8px solid #2f3640;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.4s;
+}
+
+
+.search-box input:focus,
+.search-box-thsr input:focus {
+	outline: none;
+}
+
+.select-box .options-container.active~.search-box input,
+.select-box .options-container-thsr.active~.search-box-thsr input {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.city-option-Name {
+	font-size: 14px;
+	margin-left: 5px;
+	font-weight: bolder;
+}
+
+.trainType_Filter {
+	background-color: #81ecec;
+}
+
+.trainType_Filter .train_Type {
+	width: 100%;
+	cursor: pointer;
+	color: green;
+}
+
+.fare_Container,
+.fare_Container_THSR {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.fare_Item {
+	display: flex;
+	flex-direction: column;
+	/* flex-direction: row; */
+	width: auto;
+	height: auto;
+	font-size: 16px;
+	background: #F7DB6A;
+	padding: 5px;
+	border: 2px solid #7AA874;
+	border-radius: 10px;
+	text-align: center;
+	margin: 5px;
+}
+
+.fa-search-location {
+	background-color: #fdcb6e;
+	font-size: 18px;
+	padding: 6px;
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.bike-popup {
+	display: flex;
+	flex-direction: row;
+
+}
+
+.bike-popup .bike-popup-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+	font-size: 20px;
+}
+
+.bike-popup .bike-popup-item:nth-child(1) {
+	background-color: #ffbe76;
+	width: 50%;
+}
+
+.bike-popup .bike-popup-item:nth-child(2) {
+	width: 50%;
+	background-color: #ffeaa7;
+}
+
+.bike-popup .bike-popup-item .bike-popup-h3 {
+	margin: 5px 0;
+	padding: 0;
+	height: 30%;
+	text-align: center;
+}
+
+.bike-popup .bike-popup-item p {
+	font-size: 20px;
+	text-align: center;
+	font-weight: bolder;
+	margin: 5px 0;
+}
+
+.route-item {
+	margin: 5px 0;
+	border: 2px solid #333;
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.route-item-header {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: .75rem;
+}
+
+.route-item-header h2 {
+	padding: 0;
+	font-size: 20px;
+	font-weight: bolder;
+	margin: 0;
+}
+
+.bike-Route-Direct {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.bike-Route-Direct p {
+	font-size: 14px;
+	margin: 0;
+	text-align: center;
+}
+
+.bike-Route-Direct i {
+	font-size: 24px;
+	text-align: center;
+}
+
+.bike-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 5px;
+}
+
+.bike-container .bike-city {
+	color: #fff;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 24px;
+	padding-top: .75rem;
+}
+
+.bike-city-Category {
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.bike-city-Category .city_Bike {
+	padding: 10px;
+	border: 2px solid #333;
+	border-radius: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	cursor: pointer;
+	transition: .4s;
+}
+
+.master-city {
+	background-color: #ffa502;
+}
+
+.N1_City {
+	background-color: #7bed9f;
+}
+
+.N2_City {
+	background-color: #ff7979;
+}
+
+
+.bike-city-Category .master-city:hover {
+	background-color: #ffbe76;
+}
+
+.bike-city-Category .N1_City:hover {
+	background-color: #81ecec;
+}
+
+.bike-city-Category .N2_City:hover {
+	background-color: #fab1a0;
+}
+
+.bike-city-Category .city_Bike i {
+	font-size: 36px;
+	margin: 10px 0;
+}
+
+.bike-city-Category .city_Bike h2 {
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.accordion-item{
+	background-color: #fff;
+	border-radius: 10px;
+	margin-bottom: 5px;
+}
+
+/* 手機：解析度為0px~320px使用 phone.css */
+@media screen and (max-width:767px) {
+
+	.travel-item,
+	.food-item {
+		width: 300px;
+	}
+
+	.card:hover p {
+		font-size: 16px;
+	}
+
+	.filter_Container_Food span,
+	.filter_Container_Travel span {
+		padding: 10px;
+		font-size: 14px;
+	}
+
+	.modal-body {
+		flex-direction: column;
+	}
+
+	.travel_Describe_Container,
+	.travel_Image_Container {
+		width: 100%;
+	}
+
+	h2.view_Name,
+	h3.view_address {
+		width: 70%;
+	}
+
+	.view_Span {
+		font-size: 16px;
+	}
+}
+
+
+/* 一般電腦裝置(螢幕尺寸>1025px) */
+@media screen and (min-width:1025px) {
+
+	.travel-item,
+	.food-item {
+		width: 380px;
+	}
+
+	.card:hover p {
+		font-size: 20px;
+	}
+
+	.travel_Describe_Container {
+		width: 60%;
+	}
+
+	.travel_Image_Container {
+		width: 40%;
+	}
+
+	.view_Span {
+		font-size: 20px;
+	}
+}
+
+.sidebarhome>div{
+	margin-top: 30px ;
+}
+#mrt_result{
+	display: flex;
+	flex-direction: column;
+}
+#mrt_result > label{
+	display: inline-block;
+}
+
+#THSR_item{
+
+}
+
+/* .city_container img {
+	--s: 15px;  
+	--b: 2px;   
+	--w: 200px;  */
+	/* --c: #7B3B3B;
+	
+	width: var(--w);
+	aspect-ratio: 1;
+	object-fit: cover;
+	padding: calc(2*var(--s));
+	--_g: var(--c) var(--b),#0000 0 calc(100% - var(--b)),var(--c) 0;
+	background:
+	  linear-gradient(      var(--_g)) 50%/100% var(--_i,100%) no-repeat,
+	  linear-gradient(90deg,var(--_g)) 50%/var(--_i,100%) 100% no-repeat;
+	outline: calc(var(--w)/2) solid #0009;
+	outline-offset: calc(var(--w)/-2 - 2*var(--s));
+	transition: .4s;
+	cursor: pointer;
+  }
+.city_container img:hover {
+	outline: var(--b) solid var(--c);
+	outline-offset: calc(var(--s)/-2);
+	--_i: calc(100% - 2*var(--s));
+  } */
+  .thumbex{
+    width: 100%;
+    min-width: 250px;
+    max-width: 435px;
+    height: 150px;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    outline: 2px solid white;
+    outline-offset: -15px;
+    /* background-color: blue; */
+    box-shadow: 5px 10px 40px 5px rgba(0,0,0,0.5);
+  }
+
+  .thumbnail{
+	overflow: hidden;
+	min-width: 250px;
+	height: 150px;
+	position: relative;
+	opacity: 0.88;
+	backface-visibility: hidden;
+	transition: all 0.4s ease-out;
+  }
+  .thumbnail:hover{
+	backface-visibility: hidden;
+        transform: scale(1.15, 1.15);
+        opacity: 1;
+  }
+  .thumbnail:hover img{
+	opacity: 0.9;
+  }
+  .thumbnail:hover span{
+	opacity: 0;
+  }
+  .thumbnail img{
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	top: 50%;
+	height: 115%;
+	width: auto;
+	transform: translate(-50%, -50%);
+	backface-visibility: hidden;
+  }
+  .thumbnail span{
+	position: absolute;
+	z-index: 2;
+    top: 30%;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.7);
+	padding: 10px 50px;
+	margin: 0 45px;
+	text-align: center;
+	font-size: 24px;
+	color: white;
+	font-weight: 300;
+	/* font-family: $font; */
+	letter-spacing: 0.2px;
+	transition: all 0.3s ease-out;
+  }
